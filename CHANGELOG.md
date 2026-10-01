@@ -17,6 +17,17 @@ e este projeto adere ao [Versionamento Semântico](https://semver.org/lang/pt-BR
   `tema`) que ficara órfã e podia conflitar visualmente com o tema
   selecionado. [issue #12](../../issues/12)
 
+## [0.0.4] - 2026-10-01
+
+### Adicionado
+- Página pessoal (`src/index.html`) no layout "Explorer": sidebar com foto
+  e árvore de navegação (sobre, trabalhos, acervo, contato), área principal
+  com abas de editor e listagens em estética terminal/monoespaçada
+  (`src/css/home.css`). Seções Trabalhos desenvolvidos (com lattesZen em
+  destaque), Acervo & Coleções e Canais de Contato. `src/js/config.js`
+  atualizado com o nome e o repositório reais do projeto.
+  [issue #1](../../issues/1)
+
 ## [0.0.1] - Base inicial
 
 ### Adicionado

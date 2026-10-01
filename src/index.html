@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>templateZen</title>
-    <meta name="description" content="Template reutilizável de cabeçalho, rodapé, temas e CI/CD para começar novos projetos web a partir de uma base pronta e acessível.">
+    <title>Alexsandro Cardoso Carvalho</title>
+    <meta name="description" content="Página pessoal de Alexsandro Cardoso Carvalho — pesquisador e desenvolvedor. Produção acadêmica, coleções pessoais e projetos, do código ao vinil.">
 
     <!-- Compartilhamento (Open Graph / Twitter). O %SITE_URL% é substituído
          pelo build.mjs pela URL real (env/variável SITE_URL) — deixando og:url
@@ -12,13 +12,13 @@
     <link rel="canonical" href="%SITE_URL%/">
     <meta property="og:type" content="website">
     <meta property="og:url" content="%SITE_URL%/">
-    <meta property="og:title" content="templateZen">
-    <meta property="og:description" content="Base pronta e acessível (cabeçalho, rodapé, temas e CI/CD) para novos projetos web.">
+    <meta property="og:title" content="Alexsandro Cardoso Carvalho">
+    <meta property="og:description" content="Pesquisador e desenvolvedor — produção acadêmica, coleções pessoais e projetos, do código ao vinil.">
     <meta property="og:image" content="%SITE_URL%/logo.svg">
     <meta property="og:locale" content="pt_BR">
     <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="templateZen">
-    <meta name="twitter:description" content="Base pronta e acessível (cabeçalho, rodapé, temas e CI/CD) para novos projetos web.">
+    <meta name="twitter:title" content="Alexsandro Cardoso Carvalho">
+    <meta name="twitter:description" content="Pesquisador e desenvolvedor — produção acadêmica, coleções pessoais e projetos, do código ao vinil.">
     <meta name="twitter:image" content="%SITE_URL%/logo.svg">
 
     <!-- Favicon: sempre o logo do projeto, em SVG. Troque src/logo.svg pela
@@ -27,6 +27,9 @@
 
     <!-- Estilos da aplicação (local — carrega sempre, mesmo offline) -->
     <link rel="stylesheet" href="css/styles.css">
+    <!-- Estilo exclusivo da home (layout "Explorer"); não afeta outras páginas. -->
+    <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap">
 
     <!-- Alto contraste e escala de fonte: aplicar cedo para evitar "flash".
          O tema (paleta com nome) tem seu próprio anti-flash em js/cdn.js. -->
@@ -50,101 +53,121 @@
 </head>
 <body class="font-sans bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-100 min-h-screen flex flex-col transition-colors duration-300">
 
-    <!-- ============================ CABEÇALHO ============================ -->
-    <header class="bg-brand-600 dark:bg-gray-900 border-b border-brand-700 dark:border-gray-700 flex flex-col shadow-sm dark:shadow-lg z-20 shrink-0 transition-colors duration-300">
-        <div class="flex items-center justify-between px-4 py-3 bg-brand-600 dark:bg-gray-900 transition-colors duration-300">
-            <div class="flex items-center gap-3">
-                <div class="w-8 h-8 rounded bg-white dark:bg-gradient-to-br dark:from-accent-600 dark:to-accent-900 flex items-center justify-center text-brand-600 dark:text-white font-bold transition-colors duration-300">
-                    <i aria-hidden="true" class="fa-solid fa-star"></i>
-                </div>
-                <div class="flex items-center gap-2 overflow-hidden">
-                    <h1 id="headerAppName" class="font-bold text-white leading-none whitespace-nowrap">TemplateZen</h1>
-                    <span class="text-xl text-white/30 dark:text-gray-700 font-light hidden">|</span>
-                    <span id="headerSigla" class="font-bold text-white/90 dark:text-accent-400 leading-none whitespace-nowrap hidden"></span>
-                    <!-- Nome definido pelo usuário na aba Configurações (| nome) -->
-                    <span id="headerUserNameSep" class="text-xl text-white/30 dark:text-gray-700 font-light hidden">|</span>
-                    <span id="headerUserName" class="font-bold text-white/90 dark:text-accent-400 leading-none whitespace-nowrap hidden"></span>
-                </div>
-            </div>
-            <div class="flex items-center gap-3 shrink-0">
-                <!-- Selo/logo secundário opcional (ex.: logo de uma organização parceira).
-                     Remova este bloco, ou troque a imagem, conforme necessário. -->
-                <div id="secondaryLogo" class="bg-white rounded px-2 py-1.5 items-center dark:hidden hidden">
-                    <img src="images/logo-secundaria.svg" alt="" class="h-5 w-auto" onerror="this.parentElement.style.display='none'">
-                </div>
-                <!-- Configurações: engrenagem na extrema direita (abre a aba de config). -->
-                <button type="button" id="headerConfigBtn" aria-controls="tab-config" title="Configurações" aria-label="Configurações" class="text-white/90 hover:text-white transition-colors w-8 h-8 flex items-center justify-center rounded">
-                    <i aria-hidden="true" class="fa-solid fa-gear"></i>
-                </button>
-            </div>
-        </div>
-
-        <!-- Abas de navegação: adicione/remova .tab-btn e o .tab-panel correspondente -->
-        <nav class="bg-white dark:bg-gray-800 border-t border-brand-700/20 dark:border-gray-700 px-2" role="tablist" aria-label="Seções">
-            <div class="max-w-5xl mx-auto flex gap-1 overflow-x-auto">
-                <button id="tab-inicio-btn" aria-controls="tab-inicio" class="tab-btn px-4 py-2.5 text-sm font-medium border-b-2 border-transparent text-gray-600 dark:text-gray-300 hover:text-brand-600 dark:hover:text-accent-400 whitespace-nowrap" role="tab" aria-selected="true" data-tab="inicio">
-                    <i aria-hidden="true" class="fa-solid fa-house mr-1"></i> Início
-                </button>
-            </div>
-        </nav>
-    </header>
-
     <!-- ============================ CONTEÚDO ============================ -->
-    <main class="flex-1 w-full max-w-6xl mx-auto px-4 py-6">
-        <div id="tab-inicio" class="tab-panel" role="tabpanel" aria-labelledby="tab-inicio-btn" tabindex="0">
-            <div class="max-w-3xl mx-auto space-y-6">
-                <div class="bg-brand-50 dark:bg-gray-800 border border-brand-100 dark:border-gray-700 rounded-lg p-5">
-                    <p class="font-semibold text-brand-800 dark:text-accent-400 mb-1">
-                        <i aria-hidden="true" class="fa-solid fa-circle-info mr-1"></i> Este site é um modelo (template)
-                    </p>
-                    <p>
-                        O que você está vendo — cabeçalho, abas, rodapé com tema claro/escuro,
-                        alto contraste e ajuste de fonte — não é o produto final de um projeto:
-                        é o ponto de partida reutilizável (<strong>templateZen</strong>) para
-                        montar novas aplicações web com essa mesma base pronta. Substitua este
-                        texto e as abas ao lado pelo conteúdo real do seu projeto.
-                    </p>
+    <main class="flex-1 w-full max-w-5xl mx-auto px-4 py-6">
+        <div id="tab-inicio" class="tab-panel" role="tabpanel" tabindex="0">
+            <div class="tz-explorer">
+                <div class="tz-explorer__titlebar">
+                    <span class="tz-explorer__dots" aria-hidden="true"><span></span><span></span><span></span></span>
+                    <span class="tz-explorer__path">~/ccarvalho.net — editor</span>
+                    <button type="button" id="headerConfigBtn" class="tz-explorer__gear" aria-controls="tab-config" title="Configurações" aria-label="Configurações">
+                        <i aria-hidden="true" class="fa-solid fa-gear"></i>
+                    </button>
                 </div>
 
-                <div>
-                    <h2 class="text-lg font-bold mb-2">Como usar este repositório como modelo no GitHub</h2>
-                    <ol class="list-decimal list-inside space-y-2">
-                        <li>
-                            No repositório do GitHub, abra <strong>Settings</strong> e marque a
-                            opção <strong>Template repository</strong> (só precisa ser feito uma
-                            vez, pelo dono do repositório).
-                        </li>
-                        <li>
-                            Com isso ativado, o botão verde <strong>Use this template</strong>
-                            passa a aparecer no topo da página do repositório, ao lado de
-                            "Code".
-                        </li>
-                        <li>
-                            Clique em <strong>Use this template → Create a new repository</strong>,
-                            escolha o nome do novo projeto e crie-o — você recebe uma cópia
-                            limpa (sem o histórico de commits deste repositório).
-                        </li>
-                        <li>
-                            Clone o novo repositório e edite <code>src/js/config.js</code> com os
-                            dados do seu projeto (nome, autor, links, licença).
-                        </li>
-                        <li>
-                            Configure a publicação automática via SSH seguindo o
-                            <code>DEPLOY.md</code>, e ajuste <code>CLAUDE.md</code>,
-                            <code>CHANGELOG.md</code> e <code>VERSION</code> conforme o projeto
-                            evoluir.
-                        </li>
-                    </ol>
-                </div>
+                <div class="tz-explorer__body">
+                    <div class="tz-explorer__leftcol">
+                        <figure class="tz-explorer__photo">
+                            <svg viewBox="0 0 96 96" role="img" aria-label="Retrato ilustrativo (placeholder)">
+                                <rect x="1" y="1" width="94" height="94" fill="#0e0f10" stroke="#232427"/>
+                                <g fill="none" stroke="#e0a339" stroke-width="1.4">
+                                    <circle cx="48" cy="38" r="15"/>
+                                    <path d="M22 82c4-16 14-24 26-24s22 8 26 24"/>
+                                </g>
+                            </svg>
+                            <figcaption>foto</figcaption>
+                        </figure>
+                        <div class="tz-explorer__tree" role="navigation" aria-label="Navegação de arquivos">~/ccarvalho.net
+├── <a href="#sobre">sobre</a>
+├── <span class="is-folder">trabalhos/</span>
+│&nbsp;&nbsp;├── <a href="https://github.com/alexsandroccarv/latteszen">latteszen</a>
+│&nbsp;&nbsp;├── <a href="https://ccarvalho.net/unifesp.html">unifesp</a>
+│&nbsp;&nbsp;├── <a href="http://lattes.cnpq.br/6792408436784536">lattes</a>
+│&nbsp;&nbsp;├── <a href="https://github.com/alexsandroccarv">github</a>
+│&nbsp;&nbsp;├── <a href="https://www.zotero.org/alexsandroccarv">zotero</a>
+│&nbsp;&nbsp;└── <a href="https://ccarvalho.net/wiki">wiki</a>
+├── <span class="is-folder">acervo/</span>
+│&nbsp;&nbsp;├── <a href="https://ccarvalho.net/">biblioteca</a>
+│&nbsp;&nbsp;├── <a href="https://www.discogs.com/pt_BR/user/alexsandroccarv/collection">discogs</a>
+│&nbsp;&nbsp;└── <a href="https://www.imdb.com/es-es/user/ur37575004/?ref_=uspf_usr_ov">imdb</a>
+└── <span class="is-folder">contato/</span>
+&nbsp;&nbsp;&nbsp;├── email
+&nbsp;&nbsp;&nbsp;├── <a href="https://ccarvalho.net/">telegram</a>
+&nbsp;&nbsp;&nbsp;├── <a href="https://ccarvalho.net/">signal</a>
+&nbsp;&nbsp;&nbsp;└── <a href="https://ccarvalho.net/pgp.html">pgp</a></div>
+                    </div>
 
-                <p class="text-sm text-gray-500 dark:text-gray-400">
-                    Prefere não usar "Use this template"? Também funciona clonar o repositório
-                    normalmente ou baixar o ZIP — o <code>README.md</code> tem o passo a passo
-                    completo de customização.
-                </p>
+                    <div class="tz-explorer__main">
+                        <div id="sobre" class="tz-explorer__filebar">
+                            <div class="tz-explorer__filetab is-active">sobre</div>
+                            <div class="tz-explorer__filetab">trabalhos</div>
+                            <div class="tz-explorer__filetab">acervo</div>
+                            <div class="tz-explorer__filetab">contato</div>
+                        </div>
+                        <div class="tz-explorer__block">
+                            <div style="padding:16px 0;">
+                                <div class="tz-explorer__row"><div class="tz-explorer__ln">01</div><div class="tz-explorer__content tz-explorer__comment">/**</div></div>
+                                <div class="tz-explorer__row"><div class="tz-explorer__ln">02</div><div class="tz-explorer__content tz-explorer__comment">&nbsp;* <h1 class="tz-explorer__h1">Alexsandro Cardoso Carvalho</h1></div></div>
+                                <div class="tz-explorer__row"><div class="tz-explorer__ln">03</div><div class="tz-explorer__content tz-explorer__comment">&nbsp;* entusiasta da organização do conhecimento,</div></div>
+                                <div class="tz-explorer__row"><div class="tz-explorer__ln">04</div><div class="tz-explorer__content tz-explorer__comment">&nbsp;* pesquisador e desenvolvedor.</div></div>
+                                <div class="tz-explorer__row"><div class="tz-explorer__ln">05</div><div class="tz-explorer__content tz-explorer__comment">&nbsp;*</div></div>
+                                <div class="tz-explorer__row"><div class="tz-explorer__ln">06</div><div class="tz-explorer__content tz-explorer__comment">&nbsp;* Espaço central na web: produção acadêmica,</div></div>
+                                <div class="tz-explorer__row"><div class="tz-explorer__ln">07</div><div class="tz-explorer__content tz-explorer__comment">&nbsp;* coleções pessoais e interesses diversos —</div></div>
+                                <div class="tz-explorer__row"><div class="tz-explorer__ln">08</div><div class="tz-explorer__content tz-explorer__comment">&nbsp;* do código ao vinil.</div></div>
+                                <div class="tz-explorer__row"><div class="tz-explorer__ln">09</div><div class="tz-explorer__content tz-explorer__comment">&nbsp;*/</div></div>
+                            </div>
+                        </div>
+
+                        <div class="tz-explorer__filebar">
+                            <div class="tz-explorer__filetab">sobre</div>
+                            <div class="tz-explorer__filetab is-active">trabalhos</div>
+                            <div class="tz-explorer__filetab">acervo</div>
+                            <div class="tz-explorer__filetab">contato</div>
+                        </div>
+                        <div class="tz-explorer__block">
+                            <div class="tz-explorer__row tz-explorer__row--hover"><div class="tz-explorer__ln">01</div><div class="tz-explorer__content tz-explorer__comment">// projetos, currículo e produção acadêmica</div></div>
+                            <div class="tz-explorer__row tz-explorer__row--hover"><div class="tz-explorer__ln">02</div><div class="tz-explorer__content"><a class="tz-explorer__fname" href="https://github.com/alexsandroccarv/latteszen">latteszen</a><span class="tz-explorer__desc">Organização do Currículo Lattes — origem do templateZen</span><span class="tz-explorer__tag">[destaque]</span></div></div>
+                            <div class="tz-explorer__row tz-explorer__row--hover"><div class="tz-explorer__ln">03</div><div class="tz-explorer__content"><a class="tz-explorer__fname" href="https://ccarvalho.net/unifesp.html">unifesp</a><span class="tz-explorer__desc">Perfil Institucional — Universidade Federal de São Paulo</span></div></div>
+                            <div class="tz-explorer__row tz-explorer__row--hover"><div class="tz-explorer__ln">04</div><div class="tz-explorer__content"><a class="tz-explorer__fname" href="http://lattes.cnpq.br/6792408436784536">lattes</a><span class="tz-explorer__desc">Currículo Acadêmico</span></div></div>
+                            <div class="tz-explorer__row tz-explorer__row--hover"><div class="tz-explorer__ln">05</div><div class="tz-explorer__content"><a class="tz-explorer__fname" href="https://github.com/alexsandroccarv">github</a><span class="tz-explorer__desc">Repositórios &amp; Código</span></div></div>
+                            <div class="tz-explorer__row tz-explorer__row--hover"><div class="tz-explorer__ln">06</div><div class="tz-explorer__content"><a class="tz-explorer__fname" href="https://www.zotero.org/alexsandroccarv">zotero</a><span class="tz-explorer__desc">Biblioteca de Referências</span></div></div>
+                            <div class="tz-explorer__row tz-explorer__row--hover"><div class="tz-explorer__ln">07</div><div class="tz-explorer__content"><a class="tz-explorer__fname" href="https://ccarvalho.net/wiki">wiki</a><span class="tz-explorer__desc">Acesso Restrito</span><span class="tz-explorer__tag">[restrito]</span></div></div>
+                            <div class="tz-explorer__row tz-explorer__row--hover"><div class="tz-explorer__ln">08</div><div class="tz-explorer__content" style="color:#4b4c50;font-style:italic;">+ novo projeto <span class="tz-explorer__tag" style="color:#4b4c50;">[em breve]</span></div></div>
+                        </div>
+
+                        <div class="tz-explorer__filebar">
+                            <div class="tz-explorer__filetab">sobre</div>
+                            <div class="tz-explorer__filetab">trabalhos</div>
+                            <div class="tz-explorer__filetab is-active">acervo</div>
+                            <div class="tz-explorer__filetab">contato</div>
+                        </div>
+                        <div class="tz-explorer__block">
+                            <div class="tz-explorer__row tz-explorer__row--hover"><div class="tz-explorer__ln">01</div><div class="tz-explorer__content tz-explorer__comment">// bibliotecas, discos e listas pessoais</div></div>
+                            <div class="tz-explorer__row tz-explorer__row--hover"><div class="tz-explorer__ln">02</div><div class="tz-explorer__content"><a class="tz-explorer__fname" href="https://ccarvalho.net/">biblioteca</a><span class="tz-explorer__desc">Catálogo Koha (OPAC)</span></div></div>
+                            <div class="tz-explorer__row tz-explorer__row--hover"><div class="tz-explorer__ln">03</div><div class="tz-explorer__content"><a class="tz-explorer__fname" href="https://www.discogs.com/pt_BR/user/alexsandroccarv/collection">discogs</a><span class="tz-explorer__desc">Vinil e CDs</span></div></div>
+                            <div class="tz-explorer__row tz-explorer__row--hover"><div class="tz-explorer__ln">04</div><div class="tz-explorer__content"><a class="tz-explorer__fname" href="https://www.imdb.com/es-es/user/ur37575004/?ref_=uspf_usr_ov">imdb</a><span class="tz-explorer__desc">Listas</span><span class="tz-explorer__tag">[preview ao passar o mouse]</span></div></div>
+                        </div>
+
+                        <div class="tz-explorer__filebar">
+                            <div class="tz-explorer__filetab">sobre</div>
+                            <div class="tz-explorer__filetab">trabalhos</div>
+                            <div class="tz-explorer__filetab">acervo</div>
+                            <div class="tz-explorer__filetab is-active">contato</div>
+                        </div>
+                        <div class="tz-explorer__block">
+                            <div class="tz-explorer__row tz-explorer__row--hover"><div class="tz-explorer__ln">01</div><div class="tz-explorer__content"><span class="tz-explorer__fname tz-explorer__fname--muted">email</span><span class="tz-explorer__desc">[seu-email@ccarvalho.net]</span></div></div>
+                            <div class="tz-explorer__row tz-explorer__row--hover"><div class="tz-explorer__ln">02</div><div class="tz-explorer__content"><a class="tz-explorer__fname" href="https://ccarvalho.net/">telegram</a><span class="tz-explorer__desc">Mensagem Direta</span></div></div>
+                            <div class="tz-explorer__row tz-explorer__row--hover"><div class="tz-explorer__ln">03</div><div class="tz-explorer__content"><a class="tz-explorer__fname" href="https://ccarvalho.net/">signal</a><span class="tz-explorer__desc">Mensageiro Seguro</span></div></div>
+                            <div class="tz-explorer__row tz-explorer__row--hover"><div class="tz-explorer__ln">04</div><div class="tz-explorer__content"><a class="tz-explorer__fname" href="https://ccarvalho.net/pgp.html" style="color:#4fae7a;">pgp</a><span class="tz-explorer__desc">Identidade Criptográfica</span></div></div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
         <div id="tab-config" class="tab-panel" role="tabpanel" aria-labelledby="headerConfigBtn" tabindex="0" hidden>
+            <button type="button" onclick="window.Layout.switchTab('inicio')" class="text-sm text-brand-600 dark:text-accent-400 hover:underline mb-4 flex items-center gap-1">
+                <i aria-hidden="true" class="fa-solid fa-arrow-left"></i> Voltar
+            </button>
             <div class="max-w-md space-y-6">
                 <div>
                     <label for="userNameInput" class="block text-sm font-medium mb-1">Nome:</label>
